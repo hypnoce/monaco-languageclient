@@ -587,6 +587,13 @@ export function createVSCodeApi(servicesProvider: Services.Provider): typeof vsc
             this.callOnDispose();
         }
     }
+    class Color implements vscode.Color {
+        constructor(public red: number, public green: number, public blue: number, public alpha: number) {
+        }
+    }
+    class ColorInformation implements vscode.ColorInformation {
+        constructor(public range: vscode.Range, public color: vscode.Color) { }
+    }
     return {
         workspace,
         languages,
@@ -597,6 +604,8 @@ export function createVSCodeApi(servicesProvider: Services.Provider): typeof vsc
         CodeLens,
         DocumentLink,
         CodeActionKind,
+        Color,
+        ColorInformation,
         Disposable: CodeDisposable
     } as any;
 }

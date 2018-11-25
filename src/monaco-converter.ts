@@ -16,7 +16,7 @@ import {
     SymbolInformation, DocumentSymbolParams, CodeActionContext, DiagnosticSeverity,
     Command, CodeLens, FormattingOptions, TextEdit, WorkspaceEdit, DocumentLinkParams, DocumentLink,
     MarkedString, MarkupContent, ColorInformation, ColorPresentation, FoldingRange, FoldingRangeKind,
-    DiagnosticRelatedInformation, MarkupKind, SymbolKind, DocumentSymbol, CodeAction
+    DiagnosticRelatedInformation, MarkupKind, SymbolKind, DocumentSymbol, CodeAction, TextDocumentEdit
 } from './services';
 import IReadOnlyModel = monaco.editor.IReadOnlyModel;
 
@@ -375,7 +375,7 @@ export class ProtocolToMonacoConverter {
         }
         const edits: monaco.languages.ResourceTextEdit[] = [];
         if (item.documentChanges) {
-            for (const change of item.documentChanges) {
+            for (const change of item.documentChanges as TextDocumentEdit[]) {
                 const resource = monaco.Uri.parse(change.textDocument.uri);
                 const version = typeof change.textDocument.version === 'number' ? change.textDocument.version : undefined;
                 edits.push(this.asResourceEdits(resource, change.edits, version));

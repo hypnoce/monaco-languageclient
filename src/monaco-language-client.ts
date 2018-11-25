@@ -4,17 +4,17 @@
  * ------------------------------------------------------------------------------------------ */
 import {
     BaseLanguageClient, MessageTransports, LanguageClientOptions, CompletionParams, WillSaveTextDocumentParams,
-} from "vscode-base-languageclient/lib/client";
-import { TypeDefinitionFeature } from "vscode-base-languageclient/lib/typeDefinition";
-import { ImplementationFeature } from "vscode-base-languageclient/lib/implementation";
-import { ColorProviderFeature } from "vscode-base-languageclient/lib/colorProvider";
-import { WorkspaceFoldersFeature } from "vscode-base-languageclient/lib/workspaceFolders";
-import { FoldingRangeFeature } from "vscode-base-languageclient/lib/foldingRange";
-import * as p2c from 'vscode-base-languageclient/lib/protocolConverter';
-import * as c2p from 'vscode-base-languageclient/lib/codeConverter';
+} from "vscode-languageclient/lib/client";
+import { TypeDefinitionFeature } from "vscode-languageclient/lib/typeDefinition";
+import { ImplementationFeature } from "vscode-languageclient/lib/implementation";
+import { ColorProviderFeature } from "vscode-languageclient/lib/colorProvider";
+import { WorkspaceFoldersFeature } from "vscode-languageclient/lib/workspaceFolders";
+import { FoldingRangeFeature } from "vscode-languageclient/lib/foldingRange";
+import * as p2c from 'vscode-languageclient/lib/protocolConverter';
+import * as c2p from 'vscode-languageclient/lib/codeConverter';
 import { IConnectionProvider, IConnection } from './connection';
 
-export * from 'vscode-base-languageclient/lib/client';
+export * from 'vscode-languageclient/lib/client';
 
 export class MonacoLanguageClient extends BaseLanguageClient {
 
